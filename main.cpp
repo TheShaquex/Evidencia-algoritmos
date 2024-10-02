@@ -136,6 +136,8 @@ int main()
     vector<string> mcode = {mcode1, mcode2, mcode3};
     vector<string> transmissions = {transmission1, transmission2};
 
+    cout << "parte 1" << endl;
+
     for (int i = 0; i < 2; ++i)
     {
         for (int j = 0; j < 3; ++j)
@@ -153,7 +155,7 @@ int main()
         }
     }
 
-    cout << "Parte 2:" << endl;
+    cout << "parte 2" << endl;
 
     // Parte 2: Buscar el palíndromo más largo en cada transmisión
     for (int i = 0; i < 2; ++i)
@@ -162,7 +164,7 @@ int main()
         cout << palindromo.first + 1 << " " << palindromo.second + 1 << endl;
     }
 
-    cout << "Parte 3:" << endl;
+    cout << "parte 3" << endl;
 
     // Parte 3: Subcadena común más larga entre transmission1 y transmission2
     pair<int, int> lcs = LCS(transmission1, transmission2);
