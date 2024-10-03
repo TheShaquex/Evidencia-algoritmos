@@ -105,6 +105,32 @@ void encontrarPalindromoMasLargo(const string &texto, int &inicio, int &fin, str
 
 }
 
+// Función para encontrar el substring común más largo
+void encontrarSubstringComunMasLargo(const string &a, const string &b, int &inicio, int &fin, string &substring) {
+    int m = a.size();
+    int n = b.size();
+    vector<vector<int>> tabla(m + 1, vector<int>(n + 1, 0));
+
+    int longitudMaxima = 0;
+    inicio = 0;
+    fin = 0;
+
+    for (int i = 1; i <= m; ++i) {
+        for (int j = 1; j <= n; ++j) {
+            if (a[i - 1] == b[j - 1]) {
+                tabla[i][j] = tabla[i - 1][j - 1] + 1;
+                if (tabla[i][j] > longitudMaxima) {
+                    longitudMaxima = tabla[i][j];
+                    inicio = i - longitudMaxima;
+                    fin = i;
+                    substring = a.substr(inicio, longitudMaxima);
+                }
+            }
+        }
+    }
+
+}
+
 int main() {
     // Leer archivos de transmisión y de código malicioso
     string transmission1 = leerArchivo("transmission1.txt");
@@ -116,9 +142,9 @@ int main() {
     vector<string> mcode = {mcode1, mcode2, mcode3};
     vector<string> transmissions = {transmission1, transmission2};
 
-    // Parte 1: Analizar si los códigos maliciosos están en las transmisiones
     cout << "Parte 1:" << endl;
 
+    // Parte1: Analizar si los códigos maliciosos están en las transmisiones
     for (int i = 0; i < 2; ++i) { // Iterar sobre las transmisiones
         for (int j = 0; j < 3; ++j) { // Iterar sobre los códigos maliciosos
             int posicionInicio;
@@ -138,10 +164,16 @@ int main() {
         int inicio, fin;
         string palindromo;
         encontrarPalindromoMasLargo(transmission, inicio, fin, palindromo);
-        cout << inicio + 1 << " " << fin + 1<< " " << palindromo << endl;
+        cout << inicio + 1 << " " << fin + 1 << " " << palindromo << endl;
     }
 
-    
+    // Parte 3: Buscar el substring común más largo entre las transmisiones
+    cout << "Parte 3:" << endl;
+
+    int inicio, fin;
+    string substring;
+    encontrarSubstringComunMasLargo(transmission1, transmission2, inicio, fin, substring);
+    cout << inicio + 1 << " " << fin + 1 << " " << substring << endl;
 
     return 0;
 }
