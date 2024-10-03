@@ -5,6 +5,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -123,6 +124,9 @@ pair<int, int> manacher(const string &s, string &palindromo) {
     int fin = inicio + longitudMaxima - 1;
 
     palindromo = s.substr(inicio, longitudMaxima);
+
+    // Eliminar saltos de línea del palíndromo
+    palindromo.erase(remove_if(palindromo.begin(), palindromo.end(), [](unsigned char c) { return c == '\n'; }), palindromo.end());
 
     return {inicio + 1, fin + 1};
 }
