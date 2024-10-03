@@ -1,3 +1,6 @@
+// Kaled Enriquez A01198666
+// Isaac Enriquez A00829207
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -6,6 +9,7 @@
 using namespace std;
 
 // Función para cargar el contenido de un archivo
+// Complejidad: O(n), donde n es el número de caracteres en el archivo.
 string leerArchivo(const string &nombreArchivo) {
     ifstream archivo(nombreArchivo);
     string contenido;
@@ -13,7 +17,7 @@ string leerArchivo(const string &nombreArchivo) {
 
     if (archivo.is_open()) {
         while (getline(archivo, linea)) {
-            contenido += linea + "\n"; // Agregar cada línea y un salto de línea
+            contenido += linea + "\n";
         }
         archivo.close();
     } else {
@@ -23,6 +27,7 @@ string leerArchivo(const string &nombreArchivo) {
 }
 
 // Algoritmo Z para buscar patrón
+// Complejidad: O(n), donde n es el tamaño de la cadena s.
 vector<int> calcularZ(const string &s) {
     int n = s.size();
     vector<int> Z(n);
@@ -54,13 +59,14 @@ vector<int> calcularZ(const string &s) {
 }
 
 // Buscar si el patrón está en el texto
+// Complejidad: O(n + m), donde n es la longitud del texto y m la longitud del patrón.
 bool buscarPatron(const string &texto, const string &patron, int &posicionInicio) {
     string concatenado = patron + "$" + texto;
     vector<int> Z = calcularZ(concatenado);
 
     for (int i = 0; i < Z.size(); ++i) {
         if (Z[i] == patron.size()) {
-            posicionInicio = i - patron.size() - 1; // Ajustar la posición
+            posicionInicio = i - patron.size() - 1;
             return true;
         }
     }
@@ -68,6 +74,7 @@ bool buscarPatron(const string &texto, const string &patron, int &posicionInicio
 }
 
 // Función para encontrar el palíndromo más largo usando Manacher
+// Complejidad: O(n), donde n es la longitud de la cadena s.
 pair<int, int> manacher(const string &s, string &palindromo) {
     int n = s.size();
     
@@ -117,10 +124,11 @@ pair<int, int> manacher(const string &s, string &palindromo) {
 
     palindromo = s.substr(inicio, longitudMaxima);
 
-    return {inicio + 1, fin + 1}; // Convertimos a base 1
+    return {inicio + 1, fin + 1};
 }
 
 // Función para encontrar el substring común más largo
+// Complejidad: O(m * n), donde m es la longitud de la primera cadena y n es la longitud de la segunda cadena.
 void encontrarSubstringComunMasLargo(const string &a, const string &b, int &inicio, int &fin, string &substring) {
     int m = a.size();
     int n = b.size();
