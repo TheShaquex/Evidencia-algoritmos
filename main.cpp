@@ -67,42 +67,57 @@ bool buscarPatron(const string &texto, const string &patron, int &posicionInicio
     return false;
 }
 
-// Función para encontrar el palíndromo más largo en una cadena
-void encontrarPalindromoMasLargo(const string &texto, int &inicio, int &fin, string &palindromo) {
-    int longitudMaxima = 1;
-    inicio = 0;
-    fin = 0;
+// Función para encontrar el palíndromo más largo usando Manacher
+pair<int, int> manacher(const string &s, string &palindromo) {
+    int n = s.size();
+    
+    // Transformamos la cadena para manejar palíndromos pares e impares uniformemente
+    string T = "^#";
+    for (char c : s) {
+        T += c;
+        T += '#';
+    }
+    T += '$';
 
-    for (int i = 0; i < texto.length(); ++i) {
-        // Chequeo de palíndromos de longitud impar
-        for (int j = 0; i - j >= 0 && i + j < texto.length(); ++j) {
-            if (texto[i - j] != texto[i + j]) {
-                break;
-            }
-            int longitudActual = 2 * j + 1;
-            if (longitudActual > longitudMaxima) {
-                longitudMaxima = longitudActual;
-                inicio = i - j;
-                fin = i + j;
-                palindromo = texto.substr(inicio, longitudActual);
-            }
+    int m = T.size();
+    vector<int> P(m, 0);
+    int C = 0, R = 0;
+
+    for (int i = 1; i < m - 1; ++i) {
+        int mirror = 2 * C - i;
+        if (i < R) {
+            P[i] = min(R - i, P[mirror]);
         }
 
-        // Chequeo de palíndromos de longitud par
-        for (int j = 0; i - j >= 0 && i + j + 1 < texto.length(); ++j) {
-            if (texto[i - j] != texto[i + j + 1]) {
-                break;
-            }
-            int longitudActual = 2 * (j + 1);
-            if (longitudActual > longitudMaxima) {
-                longitudMaxima = longitudActual;
-                inicio = i - j;
-                fin = i + j + 1;
-                palindromo = texto.substr(inicio, longitudActual);
-            }
+        // Intenta expandir el palíndromo centrado en i
+        while (T[i + P[i] + 1] == T[i - P[i] - 1]) {
+            P[i]++;
+        }
+
+        // Si expande más allá de R, actualizamos el centro y el radio
+        if (i + P[i] > R) {
+            C = i;
+            R = i + P[i];
         }
     }
 
+    // Encontrar la longitud máxima del palíndromo
+    int longitudMaxima = 0;
+    int centroIndex = 0;
+    for (int i = 1; i < m - 1; ++i) {
+        if (P[i] > longitudMaxima) {
+            longitudMaxima = P[i];
+            centroIndex = i;
+        }
+    }
+
+    // Obtener el inicio y el fin del palíndromo en la cadena original
+    int inicio = (centroIndex - longitudMaxima) / 2;
+    int fin = inicio + longitudMaxima - 1;
+
+    palindromo = s.substr(inicio, longitudMaxima);
+
+    return {inicio + 1, fin + 1}; // Convertimos a base 1
 }
 
 // Función para encontrar el substring común más largo
@@ -161,10 +176,9 @@ int main() {
     cout << "Parte 2:" << endl;
 
     for (const auto &transmission : transmissions) {
-        int inicio, fin;
         string palindromo;
-        encontrarPalindromoMasLargo(transmission, inicio, fin, palindromo);
-        cout << inicio + 1 << " " << fin + 1 << " " << palindromo << endl;
+        pair<int, int> resultado = manacher(transmission, palindromo);
+        cout << resultado.first << " " << resultado.second << " " << palindromo << endl;
     }
 
     // Parte 3: Buscar el substring común más largo entre las transmisiones
