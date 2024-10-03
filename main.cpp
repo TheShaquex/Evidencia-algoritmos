@@ -59,13 +59,50 @@ bool buscarPatron(const string &texto, const string &patron, int &posicionInicio
     vector<int> Z = calcularZ(concatenado);
 
     for (int i = 0; i < Z.size(); ++i) {
-        // Si Z[i] es igual a la longitud del patrón, significa que se encontró el patrón
         if (Z[i] == patron.size()) {
             posicionInicio = i - patron.size() - 1; // Ajustar la posición
             return true;
         }
     }
     return false;
+}
+
+// Función para encontrar el palíndromo más largo en una cadena
+void encontrarPalindromoMasLargo(const string &texto, int &inicio, int &fin, string &palindromo) {
+    int longitudMaxima = 1;
+    inicio = 0;
+    fin = 0;
+
+    for (int i = 0; i < texto.length(); ++i) {
+        // Chequeo de palíndromos de longitud impar
+        for (int j = 0; i - j >= 0 && i + j < texto.length(); ++j) {
+            if (texto[i - j] != texto[i + j]) {
+                break;
+            }
+            int longitudActual = 2 * j + 1;
+            if (longitudActual > longitudMaxima) {
+                longitudMaxima = longitudActual;
+                inicio = i - j;
+                fin = i + j;
+                palindromo = texto.substr(inicio, longitudActual);
+            }
+        }
+
+        // Chequeo de palíndromos de longitud par
+        for (int j = 0; i - j >= 0 && i + j + 1 < texto.length(); ++j) {
+            if (texto[i - j] != texto[i + j + 1]) {
+                break;
+            }
+            int longitudActual = 2 * (j + 1);
+            if (longitudActual > longitudMaxima) {
+                longitudMaxima = longitudActual;
+                inicio = i - j;
+                fin = i + j + 1;
+                palindromo = texto.substr(inicio, longitudActual);
+            }
+        }
+    }
+
 }
 
 int main() {
@@ -79,11 +116,11 @@ int main() {
     vector<string> mcode = {mcode1, mcode2, mcode3};
     vector<string> transmissions = {transmission1, transmission2};
 
+    // Parte 1: Analizar si los códigos maliciosos están en las transmisiones
     cout << "Parte 1:" << endl;
 
-    // Analizar si los códigos maliciosos están en las transmisiones
-    for (int i = 0; i < 2; ++i) {
-        for (int j = 0; j < 3; ++j) {
+    for (int i = 0; i < 2; ++i) { // Iterar sobre las transmisiones
+        for (int j = 0; j < 3; ++j) { // Iterar sobre los códigos maliciosos
             int posicionInicio;
             bool encontrado = buscarPatron(transmissions[i], mcode[j], posicionInicio);
             if (encontrado) {
@@ -94,9 +131,17 @@ int main() {
         }
     }
 
+    // Parte 2: Buscar el palíndromo más largo en cada transmisión
     cout << "Parte 2:" << endl;
 
-    cout << "Parte 3:" << endl;
+    for (const auto &transmission : transmissions) {
+        int inicio, fin;
+        string palindromo;
+        encontrarPalindromoMasLargo(transmission, inicio, fin, palindromo);
+        cout << inicio + 1 << " " << fin + 1<< " " << palindromo << endl;
+    }
+
+    
 
     return 0;
 }
