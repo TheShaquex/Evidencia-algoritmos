@@ -1,5 +1,4 @@
-C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/CMakeFiles/evidencia.dir
-C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/CMakeFiles/test_app.dir
+C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/CMakeFiles/main.dir
 C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/CMakeFiles/test.dir
 C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/CMakeFiles/edit_cache.dir
 C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/CMakeFiles/rebuild_cache.dir

@@ -64,16 +64,6 @@ CMAKE_BINARY_DIR = C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
-	"C:\Program Files\CMake\bin\ctest.exe" --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-.PHONY : test/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
@@ -126,37 +116,64 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named evidencia
+# Target rules for targets named main
 
 # Build rule for target.
-evidencia: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 evidencia
-.PHONY : evidencia
+main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 main
+.PHONY : main
 
 # fast build rule for target.
-evidencia/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\evidencia.dir\build.make CMakeFiles/evidencia.dir/build
-.PHONY : evidencia/fast
+main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
 
 #=============================================================================
-# Target rules for targets named test_app
+# Target rules for targets named test
 
 # Build rule for target.
-test_app: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 test_app
-.PHONY : test_app
+test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 test
+.PHONY : test
 
 # fast build rule for target.
-test_app/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_app.dir\build.make CMakeFiles/test_app.dir/build
-.PHONY : test_app/fast
+test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/build
+.PHONY : test/fast
+
+funciones.obj: funciones.cpp.obj
+.PHONY : funciones.obj
+
+# target to build an object file
+funciones.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/funciones.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/funciones.cpp.obj
+.PHONY : funciones.cpp.obj
+
+funciones.i: funciones.cpp.i
+.PHONY : funciones.i
+
+# target to preprocess a source file
+funciones.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/funciones.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/funciones.cpp.i
+.PHONY : funciones.cpp.i
+
+funciones.s: funciones.cpp.s
+.PHONY : funciones.s
+
+# target to generate assembly for a file
+funciones.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/funciones.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/funciones.cpp.s
+.PHONY : funciones.cpp.s
 
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
 # target to build an object file
 main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\evidencia.dir\build.make CMakeFiles/evidencia.dir/main.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/main.cpp.obj
 .PHONY : main.cpp.obj
 
 main.i: main.cpp.i
@@ -164,7 +181,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\evidencia.dir\build.make CMakeFiles/evidencia.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -172,7 +189,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\evidencia.dir\build.make CMakeFiles/evidencia.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 test.obj: test.cpp.obj
@@ -180,7 +197,7 @@ test.obj: test.cpp.obj
 
 # target to build an object file
 test.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_app.dir\build.make CMakeFiles/test_app.dir/test.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/test.cpp.obj
 .PHONY : test.cpp.obj
 
 test.i: test.cpp.i
@@ -188,7 +205,7 @@ test.i: test.cpp.i
 
 # target to preprocess a source file
 test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_app.dir\build.make CMakeFiles/test_app.dir/test.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/test.cpp.i
 .PHONY : test.cpp.i
 
 test.s: test.cpp.s
@@ -196,7 +213,7 @@ test.s: test.cpp.s
 
 # target to generate assembly for a file
 test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_app.dir\build.make CMakeFiles/test_app.dir/test.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/test.cpp.s
 .PHONY : test.cpp.s
 
 # Help Target
@@ -207,9 +224,11 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... main
 	@echo ... test
-	@echo ... evidencia
-	@echo ... test_app
+	@echo ... funciones.obj
+	@echo ... funciones.i
+	@echo ... funciones.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

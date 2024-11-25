@@ -1,38 +1,29 @@
+#include "funciones.h"
 #include <iostream>
-#include "main.cpp" // Incluye las funciones de main.cpp
+#include <cassert>
 
-int testBuscarPatron() {
-    std::string texto = "abcdabcabcd";
-    std::string patron = "abc";
+using namespace std;
+
+void testBuscarPatron() {
+    string texto = "hola mundo";
+    string patron = "mundo";
     int posicionInicio;
-    if (buscarPatron(texto, patron, posicionInicio) && posicionInicio == 0) {
-        return 0; // Éxito
-    }
-    return 1; // Fallo
+    bool encontrado = buscarPatron(texto, patron, posicionInicio);
+    assert(encontrado == true);
+    assert(posicionInicio == 5);
 }
 
-int testManacher() {
-    std::string texto = "abacdfgdcaba";
-    std::string palindromo;
-    auto resultado = manacher(texto, palindromo);
-    if (resultado.first == 1 && resultado.second == 3 && palindromo == "aba") {
-        return 0; // Éxito
-    }
-    return 1; // Fallo
+void testManacher() {
+    string texto = "abacabad";
+    string palindromo;
+    pair<int, int> resultado = manacher(texto, palindromo);
+    assert(resultado.first == 1 && resultado.second == 7);
+    assert(palindromo == "abacaba");
 }
 
 int main() {
-    int result = 0;
-
-    // Ejecutar pruebas
-    result += testBuscarPatron();
-    result += testManacher();
-
-    if (result == 0) {
-        std::cout << "Todas las pruebas pasaron correctamente." << std::endl;
-        return 0; // Éxito total
-    } else {
-        std::cerr << "Algunas pruebas fallaron." << std::endl;
-        return result; // Fallos
-    }
+    testBuscarPatron();
+    testManacher();
+    std::cout << "Todas las pruebas pasaron." << std::endl;
+    return 0;
 }

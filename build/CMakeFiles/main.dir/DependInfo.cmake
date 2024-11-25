@@ -8,7 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/test.cpp" "CMakeFiles/test_app.dir/test.cpp.obj" "gcc" "CMakeFiles/test_app.dir/test.cpp.obj.d"
+  "C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/funciones.cpp" "CMakeFiles/main.dir/funciones.cpp.obj" "gcc" "CMakeFiles/main.dir/funciones.cpp.obj.d"
+  "C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/main.cpp" "CMakeFiles/main.dir/main.cpp.obj" "gcc" "CMakeFiles/main.dir/main.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

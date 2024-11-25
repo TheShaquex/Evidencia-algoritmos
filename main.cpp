@@ -1,165 +1,10 @@
-// Kaled Enriquez A01198666
-// Isaac Enriquez A00829207
-
+#include "funciones.h"
 #include <iostream>
-#include <fstream>
-#include <string>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
-// Función para cargar el contenido de un archivo
-// Complejidad: O(n), donde n es el número de caracteres en el archivo.
-string leerArchivo(const string &nombreArchivo) {
-    ifstream archivo(nombreArchivo);
-    string contenido;
-    string linea;
-
-    if (archivo.is_open()) {
-        while (getline(archivo, linea)) {
-            contenido += linea + "\n";
-        }
-        archivo.close();
-    } else {
-        cerr << "No se pudo abrir el archivo: " << nombreArchivo << endl;
-    }
-    return contenido;
-}
-
-// Algoritmo Z para buscar patrón
-// Complejidad: O(n), donde n es el tamaño de la cadena s.
-vector<int> calcularZ(const string &s) {
-    int n = s.size();
-    vector<int> Z(n);
-    int L = 0, R = 0;
-
-    for (int i = 1; i < n; ++i) {
-        if (i > R) {
-            L = R = i;
-            while (R < n && s[R] == s[R - L]) {
-                R++;
-            }
-            Z[i] = R - L;
-            R--;
-        } else {
-            int k = i - L;
-            if (Z[k] < R - i + 1) {
-                Z[i] = Z[k];
-            } else {
-                L = i;
-                while (R < n && s[R] == s[R - L]) {
-                    R++;
-                }
-                Z[i] = R - L;
-                R--;
-            }
-        }
-    }
-    return Z;
-}
-
-// Buscar si el patrón está en el texto
-// Complejidad: O(n + m), donde n es la longitud del texto y m la longitud del patrón.
-bool buscarPatron(const string &texto, const string &patron, int &posicionInicio) {
-    string concatenado = patron + "$" + texto;
-    vector<int> Z = calcularZ(concatenado);
-
-    for (int i = 0; i < Z.size(); ++i) {
-        if (Z[i] == patron.size()) {
-            posicionInicio = i - patron.size() - 1;
-            return true;
-        }
-    }
-    return false;
-}
-
-// Función para encontrar el palíndromo más largo usando Manacher
-// Complejidad: O(n), donde n es la longitud de la cadena s.
-pair<int, int> manacher(const string &s, string &palindromo) {
-    int n = s.size();
-    
-    // Transformamos la cadena para manejar palíndromos pares e impares uniformemente
-    string T = "^#";
-    for (char c : s) {
-        T += c;
-        T += '#';
-    }
-    T += '$';
-
-    int m = T.size();
-    vector<int> P(m, 0);
-    int C = 0, R = 0;
-
-    for (int i = 1; i < m - 1; ++i) {
-        int mirror = 2 * C - i;
-        if (i < R) {
-            P[i] = min(R - i, P[mirror]);
-        }
-
-        // Intenta expandir el palíndromo centrado en i
-        while (T[i + P[i] + 1] == T[i - P[i] - 1]) {
-            P[i]++;
-        }
-
-        // Si expande más allá de R, actualizamos el centro y el radio
-        if (i + P[i] > R) {
-            C = i;
-            R = i + P[i];
-        }
-    }
-
-    // Encontrar la longitud máxima del palíndromo
-    int longitudMaxima = 0;
-    int centroIndex = 0;
-    for (int i = 1; i < m - 1; ++i) {
-        if (P[i] > longitudMaxima) {
-            longitudMaxima = P[i];
-            centroIndex = i;
-        }
-    }
-
-    // Obtener el inicio y el fin del palíndromo en la cadena original
-    int inicio = (centroIndex - longitudMaxima) / 2;
-    int fin = inicio + longitudMaxima - 1;
-
-    palindromo = s.substr(inicio, longitudMaxima);
-
-    // Eliminar saltos de línea del palíndromo
-    palindromo.erase(remove_if(palindromo.begin(), palindromo.end(), [](unsigned char c) { return c == '\n'; }), palindromo.end());
-
-    return {inicio + 1, fin + 1};
-}
-
-// Función para encontrar el substring común más largo
-// Complejidad: O(m * n), donde m es la longitud de la primera cadena y n es la longitud de la segunda cadena.
-void encontrarSubstringComunMasLargo(const string &a, const string &b, int &inicio, int &fin, string &substring) {
-    int m = a.size();
-    int n = b.size();
-    vector<vector<int>> tabla(m + 1, vector<int>(n + 1, 0));
-
-    int longitudMaxima = 0;
-    inicio = 0;
-    fin = 0;
-
-    for (int i = 1; i <= m; ++i) {
-        for (int j = 1; j <= n; ++j) {
-            if (a[i - 1] == b[j - 1]) {
-                tabla[i][j] = tabla[i - 1][j - 1] + 1;
-                if (tabla[i][j] > longitudMaxima) {
-                    longitudMaxima = tabla[i][j];
-                    inicio = i - longitudMaxima;
-                    fin = i;
-                    substring = a.substr(inicio, longitudMaxima);
-                }
-            }
-        }
-    }
-
-}
-
 int main() {
-    // Leer archivos de transmisión y de código malicioso
     string transmission1 = leerArchivo("transmission1.txt");
     string transmission2 = leerArchivo("transmission2.txt");
     string mcode1 = leerArchivo("mcode1.txt");
@@ -171,9 +16,8 @@ int main() {
 
     cout << "Parte 1:" << endl;
 
-    // Parte1: Analizar si los códigos maliciosos están en las transmisiones
-    for (int i = 0; i < 2; ++i) { // Iterar sobre las transmisiones
-        for (int j = 0; j < 3; ++j) { // Iterar sobre los códigos maliciosos
+    for (int i = 0; i < 2; ++i) {
+        for (int j = 0; j < 3; ++j) {
             int posicionInicio;
             bool encontrado = buscarPatron(transmissions[i], mcode[j], posicionInicio);
             if (encontrado) {
@@ -184,7 +28,6 @@ int main() {
         }
     }
 
-    // Parte 2: Buscar el palíndromo más largo en cada transmisión
     cout << "Parte 2:" << endl;
 
     for (const auto &transmission : transmissions) {
@@ -193,7 +36,6 @@ int main() {
         cout << resultado.first << " " << resultado.second << " " << palindromo << endl;
     }
 
-    // Parte 3: Buscar el substring común más largo entre las transmisiones
     cout << "Parte 3:" << endl;
 
     int inicio, fin;
