@@ -1,3 +1,7 @@
+// Copyright (c) 2024, Isaac Alejandro Enriquez Trejo y Kaled Noe Enriquez Trejo
+// Todos los derechos reservados.
+//
+// Licenciado bajo la Licencia MIT. Ver el archivo LICENSE para más detalles.
 #include "funciones.h"
 #include <iostream>
 #include <fstream>
