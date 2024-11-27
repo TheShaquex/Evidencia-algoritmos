@@ -125,7 +125,7 @@ pair<int, int> manacher(const string &s, string &palindromo) {
     return {inicio + 1, fin + 1};
 }
 
-void encontrar_substring_comun_mas_largo(const string &a, const string &b, int &inicio, int &fin, string &substring) {
+void sub_comun_largo(const string &a, const string &b, int &inicio, int &fin, string &substring) {
     int m = a.size();
     int n = b.size();
     vector<vector<int>> tabla(m + 1, vector<int>(n + 1, 0));
