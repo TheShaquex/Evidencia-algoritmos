@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "utility": "cpp",
+        "ostream": "cpp",
+        "vector": "cpp",
+        "iostream": "cpp"
+    },
+    "makefile.makefilePath": "C:\\Users\\Shaque\\Documents\\GitHub\\Evidencia-algoritmos\\build\\Makefile",
+    "makefile.makePath": "C:/msys64/usr/bin/make.exe"
+}
