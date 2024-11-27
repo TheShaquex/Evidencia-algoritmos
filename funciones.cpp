@@ -11,8 +11,8 @@
 
 using namespace std;
 
-string leerArchivo(const string &nombreArchivo) {
-    ifstream archivo(nombreArchivo);
+string leer_archivo(const string &nombre_archivo) {
+    ifstream archivo(nombre_archivo);
     string contenido;
     string linea;
 
@@ -22,48 +22,51 @@ string leerArchivo(const string &nombreArchivo) {
         }
         archivo.close();
     } else {
-        cerr << "No se pudo abrir el archivo: " << nombreArchivo << endl;
+        cerr << "No se pudo abrir el archivo: " << nombre_archivo << endl;
     }
     return contenido;
 }
 
-vector<int> calcularZ(const string &s) {
+void procesar_z_block(const string &s, vector<int> &Z, int &L, int &R, int i) {
+    L = R = i;
+    while (R < s.size() && s[R] == s[R - L]) {
+        R++;
+    }
+    Z[i] = R - L;
+    R--;
+}
+
+void ajustar_z_block(const string &s, vector<int> &Z, int &L, int &R, int i) {
+    int k = i - L;
+    if (Z[k] < R - i + 1) {
+        Z[i] = Z[k];
+    } else {
+        procesar_z_block(s, Z, L, R, i);
+    }
+}
+
+vector<int> calcular_z(const string &s) {
     int n = s.size();
     vector<int> Z(n);
     int L = 0, R = 0;
 
     for (int i = 1; i < n; ++i) {
         if (i > R) {
-            L = R = i;
-            while (R < n && s[R] == s[R - L]) {
-                R++;
-            }
-            Z[i] = R - L;
-            R--;
+            procesar_z_block(s, Z, L, R, i);
         } else {
-            int k = i - L;
-            if (Z[k] < R - i + 1) {
-                Z[i] = Z[k];
-            } else {
-                L = i;
-                while (R < n && s[R] == s[R - L]) {
-                    R++;
-                }
-                Z[i] = R - L;
-                R--;
-            }
+            ajustar_z_block(s, Z, L, R, i);
         }
     }
     return Z;
 }
 
-bool buscarPatron(const string &texto, const string &patron, int &posicionInicio) {
+bool buscar_patron(const string &texto, const string &patron, int &posicion_inicio) {
     string concatenado = patron + "$" + texto;
-    vector<int> Z = calcularZ(concatenado);
+    vector<int> Z = calcular_z(concatenado);
 
     for (int i = 0; i < Z.size(); ++i) {
         if (Z[i] == patron.size()) {
-            posicionInicio = i - patron.size() - 1;
+            posicion_inicio = i - patron.size() - 1;
             return true;
         }
     }
@@ -99,30 +102,35 @@ pair<int, int> manacher(const string &s, string &palindromo) {
         }
     }
 
-    int longitudMaxima = 0;
-    int centroIndex = 0;
+    int longitud_maxima = 0;
+    int centro_index = 0;
     for (int i = 1; i < m - 1; ++i) {
-        if (P[i] > longitudMaxima) {
-            longitudMaxima = P[i];
-            centroIndex = i;
+        if (P[i] > longitud_maxima) {
+            longitud_maxima = P[i];
+            centro_index = i;
         }
     }
 
-    int inicio = (centroIndex - longitudMaxima) / 2;
-    int fin = inicio + longitudMaxima - 1;
+    int inicio = (centro_index - longitud_maxima) / 2;
+    int fin = inicio + longitud_maxima - 1;
 
-    palindromo = s.substr(inicio, longitudMaxima);
-    palindromo.erase(remove_if(palindromo.begin(), palindromo.end(), [](unsigned char c) { return c == '\n'; }), palindromo.end());
+    palindromo = s.substr(inicio, longitud_maxima);
+
+    // Separar las declaraciones en línea única
+    auto new_end = remove_if(palindromo.begin(), palindromo.end(), [](unsigned char c) {
+        return c == '\n';
+    });
+    palindromo.erase(new_end, palindromo.end());
 
     return {inicio + 1, fin + 1};
 }
 
-void encontrarSubstringComunMasLargo(const string &a, const string &b, int &inicio, int &fin, string &substring) {
+void encontrar_substring_comun_mas_largo(const string &a, const string &b, int &inicio, int &fin, string &substring) {
     int m = a.size();
     int n = b.size();
     vector<vector<int>> tabla(m + 1, vector<int>(n + 1, 0));
 
-    int longitudMaxima = 0;
+    int longitud_maxima = 0;
     inicio = 0;
     fin = 0;
 
@@ -130,11 +138,11 @@ void encontrarSubstringComunMasLargo(const string &a, const string &b, int &inic
         for (int j = 1; j <= n; ++j) {
             if (a[i - 1] == b[j - 1]) {
                 tabla[i][j] = tabla[i - 1][j - 1] + 1;
-                if (tabla[i][j] > longitudMaxima) {
-                    longitudMaxima = tabla[i][j];
-                    inicio = i - longitudMaxima;
+                if (tabla[i][j] > longitud_maxima) {
+                    longitud_maxima = tabla[i][j];
+                    inicio = i - longitud_maxima;
                     fin = i;
-                    substring = a.substr(inicio, longitudMaxima);
+                    substring = a.substr(inicio, longitud_maxima);
                 }
             }
         }
