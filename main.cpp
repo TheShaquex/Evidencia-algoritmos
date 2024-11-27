@@ -9,11 +9,11 @@
 using namespace std;
 
 int main() {
-    string transmission1 = leerArchivo("transmission1.txt");
-    string transmission2 = leerArchivo("transmission2.txt");
-    string mcode1 = leerArchivo("mcode1.txt");
-    string mcode2 = leerArchivo("mcode2.txt");
-    string mcode3 = leerArchivo("mcode3.txt");
+    string transmission1 = leer_archivo("transmission1.txt");
+    string transmission2 = leer_archivo("transmission2.txt");
+    string mcode1 = leer_archivo("mcode1.txt");
+    string mcode2 = leer_archivo("mcode2.txt");
+    string mcode3 = leer_archivo("mcode3.txt");
 
     vector<string> mcode = {mcode1, mcode2, mcode3};
     vector<string> transmissions = {transmission1, transmission2};
@@ -23,7 +23,7 @@ int main() {
     for (int i = 0; i < 2; ++i) {
         for (int j = 0; j < 3; ++j) {
             int posicionInicio;
-            bool encontrado = buscarPatron(transmissions[i], mcode[j], posicionInicio);
+            bool encontrado = buscar_patron(transmissions[i], mcode[j], posicionInicio);
             if (encontrado) {
                 cout << "true " << posicionInicio + 1 << endl;
             } else {
@@ -44,7 +44,7 @@ int main() {
 
     int inicio, fin;
     string substring;
-    encontrarSubstringComunMasLargo(transmission1, transmission2, inicio, fin, substring);
+    sub_comun_largo(transmission1, transmission2, inicio, fin, substring);
     cout << inicio + 1 << " " << fin + 1 << " " << substring << endl;
 
     return 0;
