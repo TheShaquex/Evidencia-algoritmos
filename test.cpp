@@ -8,16 +8,16 @@
 
 using namespace std;
 
-void testBuscarPatron() {
+void test_buscar_patron() {
     string texto = "hola mundo";
     string patron = "mundo";
     int posicionInicio;
-    bool encontrado = buscarPatron(texto, patron, posicionInicio);
+    bool encontrado = buscar_patron(texto, patron, posicionInicio);
     assert(encontrado == true);
     assert(posicionInicio == 5);
 }
 
-void testManacher() {
+void test_manacher() {
     string texto = "abacabad";
     string palindromo;
     pair<int, int> resultado = manacher(texto, palindromo);
@@ -26,8 +26,8 @@ void testManacher() {
 }
 
 int main() {
-    testBuscarPatron();
-    testManacher();
+    test_buscar_patron();
+    test_manacher();
     std::cout << "Todas las pruebas pasaron." << std::endl;
     return 0;
 }
