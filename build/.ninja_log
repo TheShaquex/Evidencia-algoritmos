@@ -1,0 +1,15 @@
+# ninja log v6
+1391	1553	7547425477518306	test_pruebas.exe	b07e589e0e886d22
+11	1026	7547425463718244	tests/CMakeFiles/test_pruebas.dir/test.cpp.obj	dbc9fd688aa3aea8
+8	1073	7547425463688219	app/CMakeFiles/main.dir/main.cpp.obj	fbd0d8e269a9cd63
+4	1263	7547425463658190	src/CMakeFiles/funciones.dir/funciones.cpp.obj	20e99bcfdcd3ed02
+1264	1385	7547425476245325	lib/libfunciones.a	77904eb238813813
+1385	1553	7547425477468256	main.exe	1849ab130c9abe23
+16	362	7547426313586230	build.ninja	29e0a8b8884e9a1d
+16	48	7547426314266838	clean	e8e407a994324ac6
+35	359	7547426379518706	tests/CMakeFiles/test_pruebas.dir/test.cpp.obj	dbc9fd688aa3aea8
+33	416	7547426379498691	app/CMakeFiles/main.dir/main.cpp.obj	fbd0d8e269a9cd63
+29	552	7547426379468660	src/CMakeFiles/funciones.dir/funciones.cpp.obj	20e99bcfdcd3ed02
+552	628	7547426384693332	lib/libfunciones.a	77904eb238813813
+632	753	7547426385494415	test_pruebas.exe	97c80dfc85db4eb6
+628	754	7547426385454378	main.exe	28f2d3ff170df81c

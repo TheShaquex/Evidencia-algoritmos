@@ -9,12 +9,13 @@ project(EvidenciaAlgoritmos)
 option(CODE_COVERAGE "Enable coverage reporting" ON)
 
 # Si se habilita la cobertura, agregar las banderas necesarias
+# Activa la cobertura de código
+option(CODE_COVERAGE "Enable coverage reporting" ON)
+
 if(CODE_COVERAGE)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage")
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} --coverage")
-    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} --coverage")
-    set(CMAKE_CXX_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/coverage")
-    set(CMAKE_C_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/coverage")
+    # Para compiladores compatibles con gcov, como GCC y Clang
+    add_compile_options(--coverage)
+    link_libraries(--coverage)
 endif()
 
 # Configurar la salida de los archivos ejecutables en la raíz

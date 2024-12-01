@@ -1,4 +1,6 @@
 # CMakeLists.txt en tests/
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} --coverage")
 
 # Incluir el directorio src para acceder a funciones.h y funciones.cc
 include_directories(${CMAKE_SOURCE_DIR}/src)
