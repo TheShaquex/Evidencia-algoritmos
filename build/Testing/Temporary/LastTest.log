@@ -1,19 +1,22 @@
-Start testing: Dec 01 02:25 Hora estándar central (México)
+Start testing: Dec 01 02:38 Hora estándar central (México)
 ----------------------------------------------------------
 1/1 Testing: TestBuscarPatron
 1/1 Test: TestBuscarPatron
 Command: "C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/test_runner.exe"
 Directory: C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/tests
-"TestBuscarPatron" start time: Dec 01 02:25 Hora estándar central (México)
+"TestBuscarPatron" start time: Dec 01 02:38 Hora estándar central (México)
 Output:
 ----------------------------------------------------------
+No se pudo abrir el archivo: archivo_que_no_existe.txt
+Substring encontrada: A
+Inicio: 0, Fin: 1
 Todas las pruebas pasaron correctamente.
 <end of output>
-Test time =   0.03 sec
+Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"TestBuscarPatron" end time: Dec 01 02:25 Hora estándar central (México)
+"TestBuscarPatron" end time: Dec 01 02:38 Hora estándar central (México)
 "TestBuscarPatron" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Dec 01 02:25 Hora estándar central (México)
+End testing: Dec 01 02:38 Hora estándar central (México)

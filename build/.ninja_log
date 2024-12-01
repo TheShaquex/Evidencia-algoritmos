@@ -1,8 +1,8 @@
 # ninja log v6
-13	440	7547447550125187	tests/CMakeFiles/test_runner.dir/test.cpp.obj	d3c92e148c9796f5
-8	573	7547447550065139	app/CMakeFiles/main.dir/main.cpp.obj	df5d52c9e8cfd2
-5	813	7547447550035101	src/CMakeFiles/funciones.dir/funciones.cpp.obj	860748d4cb736f75
-10	831	7547447550095158	tests/CMakeFiles/test_runner.dir/__/src/funciones.cpp.obj	efe27a0e1827332b
-814	904	7547447558123139	lib/libfunciones.a	77904eb238813813
-832	962	7547447558303303	test_runner.exe	e5ef5792602ce9f7
-904	1026	7547447559028036	main.exe	c2059783722483df
+15	481	7547455249086088	tests/CMakeFiles/test_runner.dir/test.cpp.obj	d3c92e148c9796f5
+9	554	7547455249026037	app/CMakeFiles/main.dir/main.cpp.obj	df5d52c9e8cfd2
+12	809	7547455249056063	tests/CMakeFiles/test_runner.dir/__/src/funciones.cpp.obj	efe27a0e1827332b
+5	818	7547455248996004	src/CMakeFiles/funciones.dir/funciones.cpp.obj	860748d4cb736f75
+818	893	7547455257123399	lib/libfunciones.a	77904eb238813813
+810	958	7547455257033317	test_runner.exe	e5ef5792602ce9f7
+893	1019	7547455257874395	main.exe	c2059783722483df
