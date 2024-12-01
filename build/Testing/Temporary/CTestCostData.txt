@@ -1,2 +1,2 @@
-test_buscar_patron 1 0.0291596
+TestBuscarPatron 1 0.0289235
 ---

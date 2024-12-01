@@ -12,7 +12,7 @@
 
 # =============================================================================
 # Project: EvidenciaAlgoritmos
-# Configurations: 
+# Configurations: Debug
 # =============================================================================
 
 #############################################
@@ -20,6 +20,11 @@
 
 ninja_required_version = 1.5
 
+
+#############################################
+# Set configuration variable for custom commands.
+
+CONFIGURATION = Debug
 # =============================================================================
 # Include auxiliary files.
 
@@ -85,11 +90,13 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 build cmake_object_order_depends_target_funciones: phony || .
 
-build src/CMakeFiles/funciones.dir/funciones.cpp.obj: CXX_COMPILER__funciones_unscanned_ C$:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/src/funciones.cpp || cmake_object_order_depends_target_funciones
+build src/CMakeFiles/funciones.dir/funciones.cpp.obj: CXX_COMPILER__funciones_unscanned_Debug C$:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/src/funciones.cpp || cmake_object_order_depends_target_funciones
   DEP_FILE = src\CMakeFiles\funciones.dir\funciones.cpp.obj.d
-  FLAGS = --coverage --coverage
+  FLAGS = --coverage -g --coverage
   OBJECT_DIR = src\CMakeFiles\funciones.dir
   OBJECT_FILE_DIR = src\CMakeFiles\funciones.dir
+  TARGET_COMPILE_PDB = src\CMakeFiles\funciones.dir\funciones.pdb
+  TARGET_PDB = lib\libfunciones.pdb
 
 
 # =============================================================================
@@ -99,13 +106,14 @@ build src/CMakeFiles/funciones.dir/funciones.cpp.obj: CXX_COMPILER__funciones_un
 #############################################
 # Link the static library lib\libfunciones.a
 
-build lib/libfunciones.a: CXX_STATIC_LIBRARY_LINKER__funciones_ src/CMakeFiles/funciones.dir/funciones.cpp.obj
-  LANGUAGE_COMPILE_FLAGS = --coverage
+build lib/libfunciones.a: CXX_STATIC_LIBRARY_LINKER__funciones_Debug src/CMakeFiles/funciones.dir/funciones.cpp.obj
+  LANGUAGE_COMPILE_FLAGS = --coverage -g
   OBJECT_DIR = src\CMakeFiles\funciones.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
+  TARGET_COMPILE_PDB = src\CMakeFiles\funciones.dir\funciones.pdb
   TARGET_FILE = lib\libfunciones.a
-  TARGET_PDB = funciones.a.dbg
+  TARGET_PDB = lib\libfunciones.pdb
 
 
 #############################################
@@ -157,12 +165,14 @@ build src/rebuild_cache: phony src/CMakeFiles/rebuild_cache.util
 
 build cmake_object_order_depends_target_main: phony || cmake_object_order_depends_target_funciones
 
-build app/CMakeFiles/main.dir/main.cpp.obj: CXX_COMPILER__main_unscanned_ C$:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/app/main.cpp || cmake_object_order_depends_target_main
+build app/CMakeFiles/main.dir/main.cpp.obj: CXX_COMPILER__main_unscanned_Debug C$:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/app/main.cpp || cmake_object_order_depends_target_main
   DEP_FILE = app\CMakeFiles\main.dir\main.cpp.obj.d
-  FLAGS = --coverage --coverage
+  FLAGS = --coverage -g --coverage
   INCLUDES = -IC:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/src
   OBJECT_DIR = app\CMakeFiles\main.dir
   OBJECT_FILE_DIR = app\CMakeFiles\main.dir
+  TARGET_COMPILE_PDB = app\CMakeFiles\main.dir\
+  TARGET_PDB = main.pdb
 
 
 # =============================================================================
@@ -172,15 +182,16 @@ build app/CMakeFiles/main.dir/main.cpp.obj: CXX_COMPILER__main_unscanned_ C$:/Us
 #############################################
 # Link the executable main.exe
 
-build main.exe: CXX_EXECUTABLE_LINKER__main_ app/CMakeFiles/main.dir/main.cpp.obj | lib/libfunciones.a || lib/libfunciones.a
-  FLAGS = --coverage
+build main.exe: CXX_EXECUTABLE_LINKER__main_Debug app/CMakeFiles/main.dir/main.cpp.obj | lib/libfunciones.a || lib/libfunciones.a
+  FLAGS = --coverage -g
   LINK_LIBRARIES = --coverage  lib/libfunciones.a  --coverage  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = app\CMakeFiles\main.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
+  TARGET_COMPILE_PDB = app\CMakeFiles\main.dir\
   TARGET_FILE = main.exe
   TARGET_IMPLIB = app\libmain.dll.a
-  TARGET_PDB = main.exe.dbg
+  TARGET_PDB = main.pdb
 
 
 #############################################
@@ -223,6 +234,174 @@ build app/rebuild_cache: phony app/CMakeFiles/rebuild_cache.util
 # C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/CMakeLists.txt
 # =============================================================================
 
+
+#############################################
+# Utility command for Experimental
+
+build tests/Experimental: phony tests/CMakeFiles/Experimental
+
+
+#############################################
+# Utility command for Nightly
+
+build tests/Nightly: phony tests/CMakeFiles/Nightly
+
+
+#############################################
+# Utility command for Continuous
+
+build tests/Continuous: phony tests/CMakeFiles/Continuous
+
+
+#############################################
+# Utility command for NightlyMemoryCheck
+
+build tests/NightlyMemoryCheck: phony tests/CMakeFiles/NightlyMemoryCheck
+
+
+#############################################
+# Utility command for NightlyStart
+
+build tests/NightlyStart: phony tests/CMakeFiles/NightlyStart
+
+
+#############################################
+# Utility command for NightlyUpdate
+
+build tests/NightlyUpdate: phony tests/CMakeFiles/NightlyUpdate
+
+
+#############################################
+# Utility command for NightlyConfigure
+
+build tests/NightlyConfigure: phony tests/CMakeFiles/NightlyConfigure
+
+
+#############################################
+# Utility command for NightlyBuild
+
+build tests/NightlyBuild: phony tests/CMakeFiles/NightlyBuild
+
+
+#############################################
+# Utility command for NightlyTest
+
+build tests/NightlyTest: phony tests/CMakeFiles/NightlyTest
+
+
+#############################################
+# Utility command for NightlyCoverage
+
+build tests/NightlyCoverage: phony tests/CMakeFiles/NightlyCoverage
+
+
+#############################################
+# Utility command for NightlyMemCheck
+
+build tests/NightlyMemCheck: phony tests/CMakeFiles/NightlyMemCheck
+
+
+#############################################
+# Utility command for NightlySubmit
+
+build tests/NightlySubmit: phony tests/CMakeFiles/NightlySubmit
+
+
+#############################################
+# Utility command for ExperimentalStart
+
+build tests/ExperimentalStart: phony tests/CMakeFiles/ExperimentalStart
+
+
+#############################################
+# Utility command for ExperimentalUpdate
+
+build tests/ExperimentalUpdate: phony tests/CMakeFiles/ExperimentalUpdate
+
+
+#############################################
+# Utility command for ExperimentalConfigure
+
+build tests/ExperimentalConfigure: phony tests/CMakeFiles/ExperimentalConfigure
+
+
+#############################################
+# Utility command for ExperimentalBuild
+
+build tests/ExperimentalBuild: phony tests/CMakeFiles/ExperimentalBuild
+
+
+#############################################
+# Utility command for ExperimentalTest
+
+build tests/ExperimentalTest: phony tests/CMakeFiles/ExperimentalTest
+
+
+#############################################
+# Utility command for ExperimentalCoverage
+
+build tests/ExperimentalCoverage: phony tests/CMakeFiles/ExperimentalCoverage
+
+
+#############################################
+# Utility command for ExperimentalMemCheck
+
+build tests/ExperimentalMemCheck: phony tests/CMakeFiles/ExperimentalMemCheck
+
+
+#############################################
+# Utility command for ExperimentalSubmit
+
+build tests/ExperimentalSubmit: phony tests/CMakeFiles/ExperimentalSubmit
+
+
+#############################################
+# Utility command for ContinuousStart
+
+build tests/ContinuousStart: phony tests/CMakeFiles/ContinuousStart
+
+
+#############################################
+# Utility command for ContinuousUpdate
+
+build tests/ContinuousUpdate: phony tests/CMakeFiles/ContinuousUpdate
+
+
+#############################################
+# Utility command for ContinuousConfigure
+
+build tests/ContinuousConfigure: phony tests/CMakeFiles/ContinuousConfigure
+
+
+#############################################
+# Utility command for ContinuousBuild
+
+build tests/ContinuousBuild: phony tests/CMakeFiles/ContinuousBuild
+
+
+#############################################
+# Utility command for ContinuousTest
+
+build tests/ContinuousTest: phony tests/CMakeFiles/ContinuousTest
+
+
+#############################################
+# Utility command for ContinuousCoverage
+
+build tests/ContinuousCoverage: phony tests/CMakeFiles/ContinuousCoverage
+
+
+#############################################
+# Utility command for ContinuousMemCheck
+
+build tests/ContinuousMemCheck: phony tests/CMakeFiles/ContinuousMemCheck
+
+
+#############################################
+# Utility command for ContinuousSubmit
+
+build tests/ContinuousSubmit: phony tests/CMakeFiles/ContinuousSubmit
+
 # =============================================================================
 # Object build statements for EXECUTABLE target test_runner
 
@@ -232,19 +411,23 @@ build app/rebuild_cache: phony app/CMakeFiles/rebuild_cache.util
 
 build cmake_object_order_depends_target_test_runner: phony || .
 
-build tests/CMakeFiles/test_runner.dir/__/src/funciones.cpp.obj: CXX_COMPILER__test_runner_unscanned_ C$:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/src/funciones.cpp || cmake_object_order_depends_target_test_runner
+build tests/CMakeFiles/test_runner.dir/__/src/funciones.cpp.obj: CXX_COMPILER__test_runner_unscanned_Debug C$:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/src/funciones.cpp || cmake_object_order_depends_target_test_runner
   DEP_FILE = tests\CMakeFiles\test_runner.dir\__\src\funciones.cpp.obj.d
-  FLAGS = --coverage
+  FLAGS = -g --coverage
   INCLUDES = -IC:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/src
   OBJECT_DIR = tests\CMakeFiles\test_runner.dir
   OBJECT_FILE_DIR = tests\CMakeFiles\test_runner.dir\__\src
+  TARGET_COMPILE_PDB = tests\CMakeFiles\test_runner.dir\
+  TARGET_PDB = test_runner.pdb
 
-build tests/CMakeFiles/test_runner.dir/test.cpp.obj: CXX_COMPILER__test_runner_unscanned_ C$:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/tests/test.cpp || cmake_object_order_depends_target_test_runner
+build tests/CMakeFiles/test_runner.dir/test.cpp.obj: CXX_COMPILER__test_runner_unscanned_Debug C$:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/tests/test.cpp || cmake_object_order_depends_target_test_runner
   DEP_FILE = tests\CMakeFiles\test_runner.dir\test.cpp.obj.d
-  FLAGS = --coverage
+  FLAGS = -g --coverage
   INCLUDES = -IC:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/src
   OBJECT_DIR = tests\CMakeFiles\test_runner.dir
   OBJECT_FILE_DIR = tests\CMakeFiles\test_runner.dir
+  TARGET_COMPILE_PDB = tests\CMakeFiles\test_runner.dir\
+  TARGET_PDB = test_runner.pdb
 
 
 # =============================================================================
@@ -254,14 +437,17 @@ build tests/CMakeFiles/test_runner.dir/test.cpp.obj: CXX_COMPILER__test_runner_u
 #############################################
 # Link the executable test_runner.exe
 
-build test_runner.exe: CXX_EXECUTABLE_LINKER__test_runner_ tests/CMakeFiles/test_runner.dir/__/src/funciones.cpp.obj tests/CMakeFiles/test_runner.dir/test.cpp.obj
+build test_runner.exe: CXX_EXECUTABLE_LINKER__test_runner_Debug tests/CMakeFiles/test_runner.dir/__/src/funciones.cpp.obj tests/CMakeFiles/test_runner.dir/test.cpp.obj
+  FLAGS = -g
+  LINK_FLAGS = --coverage
   LINK_LIBRARIES = --coverage  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = tests\CMakeFiles\test_runner.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
+  TARGET_COMPILE_PDB = tests\CMakeFiles\test_runner.dir\
   TARGET_FILE = test_runner.exe
   TARGET_IMPLIB = tests\libtest_runner.dll.a
-  TARGET_PDB = test_runner.exe.dbg
+  TARGET_PDB = test_runner.pdb
 
 
 #############################################
@@ -299,8 +485,288 @@ build tests/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build tests/rebuild_cache: phony tests/CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Custom command for tests\CMakeFiles\Experimental
+
+build tests/CMakeFiles/Experimental | ${cmake_ninja_workdir}tests/CMakeFiles/Experimental: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" -D Experimental"
+  pool = console
+
+
+#############################################
+# Custom command for tests\CMakeFiles\Nightly
+
+build tests/CMakeFiles/Nightly | ${cmake_ninja_workdir}tests/CMakeFiles/Nightly: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" -D Nightly"
+  pool = console
+
+
+#############################################
+# Custom command for tests\CMakeFiles\Continuous
+
+build tests/CMakeFiles/Continuous | ${cmake_ninja_workdir}tests/CMakeFiles/Continuous: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" -D Continuous"
+  pool = console
+
+
+#############################################
+# Custom command for tests\CMakeFiles\NightlyMemoryCheck
+
+build tests/CMakeFiles/NightlyMemoryCheck | ${cmake_ninja_workdir}tests/CMakeFiles/NightlyMemoryCheck: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" -D NightlyMemoryCheck"
+  pool = console
+
+
+#############################################
+# Custom command for tests\CMakeFiles\NightlyStart
+
+build tests/CMakeFiles/NightlyStart | ${cmake_ninja_workdir}tests/CMakeFiles/NightlyStart: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" -D NightlyStart"
+  pool = console
+
+
+#############################################
+# Custom command for tests\CMakeFiles\NightlyUpdate
+
+build tests/CMakeFiles/NightlyUpdate | ${cmake_ninja_workdir}tests/CMakeFiles/NightlyUpdate: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" -D NightlyUpdate"
+  pool = console
+
+
+#############################################
+# Custom command for tests\CMakeFiles\NightlyConfigure
+
+build tests/CMakeFiles/NightlyConfigure | ${cmake_ninja_workdir}tests/CMakeFiles/NightlyConfigure: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" -D NightlyConfigure"
+  pool = console
+
+
+#############################################
+# Custom command for tests\CMakeFiles\NightlyBuild
+
+build tests/CMakeFiles/NightlyBuild | ${cmake_ninja_workdir}tests/CMakeFiles/NightlyBuild: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" -D NightlyBuild"
+  pool = console
+
+
+#############################################
+# Custom command for tests\CMakeFiles\NightlyTest
+
+build tests/CMakeFiles/NightlyTest | ${cmake_ninja_workdir}tests/CMakeFiles/NightlyTest: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" -D NightlyTest"
+  pool = console
+
+
+#############################################
+# Custom command for tests\CMakeFiles\NightlyCoverage
+
+build tests/CMakeFiles/NightlyCoverage | ${cmake_ninja_workdir}tests/CMakeFiles/NightlyCoverage: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" -D NightlyCoverage"
+  pool = console
+
+
+#############################################
+# Custom command for tests\CMakeFiles\NightlyMemCheck
+
+build tests/CMakeFiles/NightlyMemCheck | ${cmake_ninja_workdir}tests/CMakeFiles/NightlyMemCheck: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" -D NightlyMemCheck"
+  pool = console
+
+
+#############################################
+# Custom command for tests\CMakeFiles\NightlySubmit
+
+build tests/CMakeFiles/NightlySubmit | ${cmake_ninja_workdir}tests/CMakeFiles/NightlySubmit: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" -D NightlySubmit"
+  pool = console
+
+
+#############################################
+# Custom command for tests\CMakeFiles\ExperimentalStart
+
+build tests/CMakeFiles/ExperimentalStart | ${cmake_ninja_workdir}tests/CMakeFiles/ExperimentalStart: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" -D ExperimentalStart"
+  pool = console
+
+
+#############################################
+# Custom command for tests\CMakeFiles\ExperimentalUpdate
+
+build tests/CMakeFiles/ExperimentalUpdate | ${cmake_ninja_workdir}tests/CMakeFiles/ExperimentalUpdate: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" -D ExperimentalUpdate"
+  pool = console
+
+
+#############################################
+# Custom command for tests\CMakeFiles\ExperimentalConfigure
+
+build tests/CMakeFiles/ExperimentalConfigure | ${cmake_ninja_workdir}tests/CMakeFiles/ExperimentalConfigure: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" -D ExperimentalConfigure"
+  pool = console
+
+
+#############################################
+# Custom command for tests\CMakeFiles\ExperimentalBuild
+
+build tests/CMakeFiles/ExperimentalBuild | ${cmake_ninja_workdir}tests/CMakeFiles/ExperimentalBuild: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" -D ExperimentalBuild"
+  pool = console
+
+
+#############################################
+# Custom command for tests\CMakeFiles\ExperimentalTest
+
+build tests/CMakeFiles/ExperimentalTest | ${cmake_ninja_workdir}tests/CMakeFiles/ExperimentalTest: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" -D ExperimentalTest"
+  pool = console
+
+
+#############################################
+# Custom command for tests\CMakeFiles\ExperimentalCoverage
+
+build tests/CMakeFiles/ExperimentalCoverage | ${cmake_ninja_workdir}tests/CMakeFiles/ExperimentalCoverage: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" -D ExperimentalCoverage"
+  pool = console
+
+
+#############################################
+# Custom command for tests\CMakeFiles\ExperimentalMemCheck
+
+build tests/CMakeFiles/ExperimentalMemCheck | ${cmake_ninja_workdir}tests/CMakeFiles/ExperimentalMemCheck: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" -D ExperimentalMemCheck"
+  pool = console
+
+
+#############################################
+# Custom command for tests\CMakeFiles\ExperimentalSubmit
+
+build tests/CMakeFiles/ExperimentalSubmit | ${cmake_ninja_workdir}tests/CMakeFiles/ExperimentalSubmit: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" -D ExperimentalSubmit"
+  pool = console
+
+
+#############################################
+# Custom command for tests\CMakeFiles\ContinuousStart
+
+build tests/CMakeFiles/ContinuousStart | ${cmake_ninja_workdir}tests/CMakeFiles/ContinuousStart: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" -D ContinuousStart"
+  pool = console
+
+
+#############################################
+# Custom command for tests\CMakeFiles\ContinuousUpdate
+
+build tests/CMakeFiles/ContinuousUpdate | ${cmake_ninja_workdir}tests/CMakeFiles/ContinuousUpdate: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" -D ContinuousUpdate"
+  pool = console
+
+
+#############################################
+# Custom command for tests\CMakeFiles\ContinuousConfigure
+
+build tests/CMakeFiles/ContinuousConfigure | ${cmake_ninja_workdir}tests/CMakeFiles/ContinuousConfigure: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" -D ContinuousConfigure"
+  pool = console
+
+
+#############################################
+# Custom command for tests\CMakeFiles\ContinuousBuild
+
+build tests/CMakeFiles/ContinuousBuild | ${cmake_ninja_workdir}tests/CMakeFiles/ContinuousBuild: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" -D ContinuousBuild"
+  pool = console
+
+
+#############################################
+# Custom command for tests\CMakeFiles\ContinuousTest
+
+build tests/CMakeFiles/ContinuousTest | ${cmake_ninja_workdir}tests/CMakeFiles/ContinuousTest: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" -D ContinuousTest"
+  pool = console
+
+
+#############################################
+# Custom command for tests\CMakeFiles\ContinuousCoverage
+
+build tests/CMakeFiles/ContinuousCoverage | ${cmake_ninja_workdir}tests/CMakeFiles/ContinuousCoverage: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" -D ContinuousCoverage"
+  pool = console
+
+
+#############################################
+# Custom command for tests\CMakeFiles\ContinuousMemCheck
+
+build tests/CMakeFiles/ContinuousMemCheck | ${cmake_ninja_workdir}tests/CMakeFiles/ContinuousMemCheck: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" -D ContinuousMemCheck"
+  pool = console
+
+
+#############################################
+# Custom command for tests\CMakeFiles\ContinuousSubmit
+
+build tests/CMakeFiles/ContinuousSubmit | ${cmake_ninja_workdir}tests/CMakeFiles/ContinuousSubmit: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" -D ContinuousSubmit"
+  pool = console
+
 # =============================================================================
 # Target aliases.
+
+build Continuous: phony tests/Continuous
+
+build ContinuousBuild: phony tests/ContinuousBuild
+
+build ContinuousConfigure: phony tests/ContinuousConfigure
+
+build ContinuousCoverage: phony tests/ContinuousCoverage
+
+build ContinuousMemCheck: phony tests/ContinuousMemCheck
+
+build ContinuousStart: phony tests/ContinuousStart
+
+build ContinuousSubmit: phony tests/ContinuousSubmit
+
+build ContinuousTest: phony tests/ContinuousTest
+
+build ContinuousUpdate: phony tests/ContinuousUpdate
+
+build Experimental: phony tests/Experimental
+
+build ExperimentalBuild: phony tests/ExperimentalBuild
+
+build ExperimentalConfigure: phony tests/ExperimentalConfigure
+
+build ExperimentalCoverage: phony tests/ExperimentalCoverage
+
+build ExperimentalMemCheck: phony tests/ExperimentalMemCheck
+
+build ExperimentalStart: phony tests/ExperimentalStart
+
+build ExperimentalSubmit: phony tests/ExperimentalSubmit
+
+build ExperimentalTest: phony tests/ExperimentalTest
+
+build ExperimentalUpdate: phony tests/ExperimentalUpdate
+
+build Nightly: phony tests/Nightly
+
+build NightlyBuild: phony tests/NightlyBuild
+
+build NightlyConfigure: phony tests/NightlyConfigure
+
+build NightlyCoverage: phony tests/NightlyCoverage
+
+build NightlyMemCheck: phony tests/NightlyMemCheck
+
+build NightlyMemoryCheck: phony tests/NightlyMemoryCheck
+
+build NightlyStart: phony tests/NightlyStart
+
+build NightlySubmit: phony tests/NightlySubmit
+
+build NightlyTest: phony tests/NightlyTest
+
+build NightlyUpdate: phony tests/NightlyUpdate
 
 build funciones: phony lib/libfunciones.a
 
@@ -348,14 +814,14 @@ build tests/all: phony test_runner.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Linker/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/WindowsPaths.cmake C$:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/CMakeLists.txt C$:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/app/CMakeLists.txt C$:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/src/CMakeLists.txt C$:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/tests/CMakeLists.txt CMakeCache.txt CMakeFiles/3.31.0/CMakeCCompiler.cmake CMakeFiles/3.31.0/CMakeCXXCompiler.cmake CMakeFiles/3.31.0/CMakeRCCompiler.cmake CMakeFiles/3.31.0/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCCompiler.cmake.in C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCCompilerABI.c C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCXXCompiler.cmake.in C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCompilerIdDetection.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCXXCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerSupport.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeDetermineRCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeFindBinUtils.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeNinjaFindMake.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeParseLibraryArchitecture.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeRCCompiler.cmake.in C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeSystem.cmake.in C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeTestCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeTestCompilerCommon.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeTestRCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CTest.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CTestTargets.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CTestUseLaunchers.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/CrayClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/LCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/OrangeC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/TIClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/Tasking-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/DartConfiguration.tcl.in C$:/Program$ Files/CMake/share/cmake-3.31/Modules/GoogleTest.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeDetermineLinkerId.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/FeatureTesting.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Linker/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-Determine-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/WindowsPaths.cmake C$:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/CMakeLists.txt C$:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/app/CMakeLists.txt C$:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/src/CMakeLists.txt C$:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/tests/CMakeLists.txt CMakeCache.txt CMakeFiles/3.31.0/CMakeCCompiler.cmake CMakeFiles/3.31.0/CMakeCXXCompiler.cmake CMakeFiles/3.31.0/CMakeRCCompiler.cmake CMakeFiles/3.31.0/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Linker/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/WindowsPaths.cmake C$:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/CMakeLists.txt C$:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/app/CMakeLists.txt C$:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/src/CMakeLists.txt C$:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/tests/CMakeLists.txt CMakeCache.txt CMakeFiles/3.31.0/CMakeCCompiler.cmake CMakeFiles/3.31.0/CMakeCXXCompiler.cmake CMakeFiles/3.31.0/CMakeRCCompiler.cmake CMakeFiles/3.31.0/CMakeSystem.cmake: phony
+build C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCCompiler.cmake.in C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCCompilerABI.c C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCXXCompiler.cmake.in C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCompilerIdDetection.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCXXCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerSupport.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeDetermineRCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeFindBinUtils.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeNinjaFindMake.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeParseLibraryArchitecture.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeRCCompiler.cmake.in C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeSystem.cmake.in C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeTestCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeTestCompilerCommon.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeTestRCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CTest.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CTestTargets.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CTestUseLaunchers.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/CrayClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/LCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/OrangeC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/TIClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/Tasking-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/DartConfiguration.tcl.in C$:/Program$ Files/CMake/share/cmake-3.31/Modules/GoogleTest.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeDetermineLinkerId.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/FeatureTesting.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Linker/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-Determine-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/WindowsPaths.cmake C$:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/CMakeLists.txt C$:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/app/CMakeLists.txt C$:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/src/CMakeLists.txt C$:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/tests/CMakeLists.txt CMakeCache.txt CMakeFiles/3.31.0/CMakeCCompiler.cmake CMakeFiles/3.31.0/CMakeCXXCompiler.cmake CMakeFiles/3.31.0/CMakeRCCompiler.cmake CMakeFiles/3.31.0/CMakeSystem.cmake: phony
 
 
 #############################################
