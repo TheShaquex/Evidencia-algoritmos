@@ -9,9 +9,6 @@ project(EvidenciaAlgoritmos)
 option(CODE_COVERAGE "Enable coverage reporting" ON)
 
 # Si se habilita la cobertura, agregar las banderas necesarias
-# Activa la cobertura de código
-option(CODE_COVERAGE "Enable coverage reporting" ON)
-
 if(CODE_COVERAGE)
     # Para compiladores compatibles con gcov, como GCC y Clang
     add_compile_options(--coverage)
@@ -21,7 +18,10 @@ endif()
 # Configurar la salida de los archivos ejecutables en la raíz
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
-# Agregar subdirectorios (fuentes, pruebas)
+# Habilitar las pruebas
+enable_testing()
+
+# Agregar subdirectorios para fuentes, aplicaciones y pruebas
 add_subdirectory(src)
 add_subdirectory(app)
 add_subdirectory(tests)

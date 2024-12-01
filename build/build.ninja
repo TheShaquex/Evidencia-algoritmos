@@ -37,6 +37,18 @@ include CMakeFiles/rules.ninja
 cmake_ninja_workdir = C$:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/
 
 #############################################
+# Utility command for test
+
+build CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build && "C:\Program Files\CMake\bin\ctest.exe" --force-new-ctest-process "
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build test: phony CMakeFiles/test.util
+
+
+#############################################
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
@@ -94,6 +106,18 @@ build lib/libfunciones.a: CXX_STATIC_LIBRARY_LINKER__funciones_ src/CMakeFiles/f
   PRE_LINK = cd .
   TARGET_FILE = lib\libfunciones.a
   TARGET_PDB = funciones.a.dbg
+
+
+#############################################
+# Utility command for test
+
+build src/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\src && "C:\Program Files\CMake\bin\ctest.exe" --force-new-ctest-process "
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build src/test: phony src/CMakeFiles/test.util
 
 
 #############################################
@@ -160,6 +184,18 @@ build main.exe: CXX_EXECUTABLE_LINKER__main_ app/CMakeFiles/main.dir/main.cpp.ob
 
 
 #############################################
+# Utility command for test
+
+build app/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\app && "C:\Program Files\CMake\bin\ctest.exe" --force-new-ctest-process "
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build app/test: phony app/CMakeFiles/test.util
+
+
+#############################################
 # Utility command for edit_cache
 
 build app/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
@@ -188,38 +224,56 @@ build app/rebuild_cache: phony app/CMakeFiles/rebuild_cache.util
 # =============================================================================
 
 # =============================================================================
-# Object build statements for EXECUTABLE target test_pruebas
+# Object build statements for EXECUTABLE target test_runner
 
 
 #############################################
-# Order-only phony target for test_pruebas
+# Order-only phony target for test_runner
 
-build cmake_object_order_depends_target_test_pruebas: phony || cmake_object_order_depends_target_funciones
+build cmake_object_order_depends_target_test_runner: phony || .
 
-build tests/CMakeFiles/test_pruebas.dir/test.cpp.obj: CXX_COMPILER__test_pruebas_unscanned_ C$:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/tests/test.cpp || cmake_object_order_depends_target_test_pruebas
-  DEP_FILE = tests\CMakeFiles\test_pruebas.dir\test.cpp.obj.d
-  FLAGS = --coverage --coverage
+build tests/CMakeFiles/test_runner.dir/__/src/funciones.cpp.obj: CXX_COMPILER__test_runner_unscanned_ C$:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/src/funciones.cpp || cmake_object_order_depends_target_test_runner
+  DEP_FILE = tests\CMakeFiles\test_runner.dir\__\src\funciones.cpp.obj.d
+  FLAGS = --coverage
   INCLUDES = -IC:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/src
-  OBJECT_DIR = tests\CMakeFiles\test_pruebas.dir
-  OBJECT_FILE_DIR = tests\CMakeFiles\test_pruebas.dir
+  OBJECT_DIR = tests\CMakeFiles\test_runner.dir
+  OBJECT_FILE_DIR = tests\CMakeFiles\test_runner.dir\__\src
+
+build tests/CMakeFiles/test_runner.dir/test.cpp.obj: CXX_COMPILER__test_runner_unscanned_ C$:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/tests/test.cpp || cmake_object_order_depends_target_test_runner
+  DEP_FILE = tests\CMakeFiles\test_runner.dir\test.cpp.obj.d
+  FLAGS = --coverage
+  INCLUDES = -IC:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/src
+  OBJECT_DIR = tests\CMakeFiles\test_runner.dir
+  OBJECT_FILE_DIR = tests\CMakeFiles\test_runner.dir
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target test_pruebas
+# Link build statements for EXECUTABLE target test_runner
 
 
 #############################################
-# Link the executable test_pruebas.exe
+# Link the executable test_runner.exe
 
-build test_pruebas.exe: CXX_EXECUTABLE_LINKER__test_pruebas_ tests/CMakeFiles/test_pruebas.dir/test.cpp.obj | lib/libfunciones.a || lib/libfunciones.a
-  FLAGS = --coverage
-  LINK_LIBRARIES = --coverage  lib/libfunciones.a  --coverage  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = tests\CMakeFiles\test_pruebas.dir
+build test_runner.exe: CXX_EXECUTABLE_LINKER__test_runner_ tests/CMakeFiles/test_runner.dir/__/src/funciones.cpp.obj tests/CMakeFiles/test_runner.dir/test.cpp.obj
+  LINK_LIBRARIES = --coverage  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = tests\CMakeFiles\test_runner.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = test_pruebas.exe
-  TARGET_IMPLIB = tests\libtest_pruebas.dll.a
-  TARGET_PDB = test_pruebas.exe.dbg
+  TARGET_FILE = test_runner.exe
+  TARGET_IMPLIB = tests\libtest_runner.dll.a
+  TARGET_PDB = test_runner.exe.dbg
+
+
+#############################################
+# Utility command for test
+
+build tests/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Shaque\Documents\GitHub\Evidencia-algoritmos\build\tests && "C:\Program Files\CMake\bin\ctest.exe" --force-new-ctest-process "
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build tests/test: phony tests/CMakeFiles/test.util
 
 
 #############################################
@@ -254,7 +308,7 @@ build libfunciones.a: phony lib/libfunciones.a
 
 build main: phony main.exe
 
-build test_pruebas: phony test_pruebas.exe
+build test_runner: phony test_runner.exe
 
 # =============================================================================
 # Folder targets.
@@ -285,7 +339,7 @@ build src/all: phony lib/libfunciones.a
 #############################################
 # Folder: C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/tests
 
-build tests/all: phony test_pruebas.exe
+build tests/all: phony test_runner.exe
 
 # =============================================================================
 # Built-in targets

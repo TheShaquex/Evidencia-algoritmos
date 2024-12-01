@@ -1,0 +1,19 @@
+Start testing: Dec 01 02:09 Hora estándar central (México)
+----------------------------------------------------------
+1/1 Testing: test_buscar_patron
+1/1 Test: test_buscar_patron
+Command: "C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/test_runner.exe"
+Directory: C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/tests
+"test_buscar_patron" start time: Dec 01 02:09 Hora estándar central (México)
+Output:
+----------------------------------------------------------
+Todas las pruebas pasaron correctamente.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"test_buscar_patron" end time: Dec 01 02:09 Hora estándar central (México)
+"test_buscar_patron" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Dec 01 02:09 Hora estándar central (México)
