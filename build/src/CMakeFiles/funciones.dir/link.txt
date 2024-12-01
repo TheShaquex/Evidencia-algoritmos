@@ -1,0 +1,2 @@
+C:/msys64/mingw64/bin/ar.exe qc ../lib/libfunciones.a CMakeFiles/funciones.dir/funciones.cpp.obj
+C:/msys64/mingw64/bin/ranlib.exe ../lib/libfunciones.a

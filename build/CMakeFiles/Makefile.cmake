@@ -8,10 +8,13 @@ set(CMAKE_DEPENDS_GENERATOR "MSYS Makefiles")
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/CMakeLists.txt"
+  "C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/app/CMakeLists.txt"
   "CMakeFiles/3.31.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.31.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.31.1/CMakeRCCompiler.cmake"
   "CMakeFiles/3.31.1/CMakeSystem.cmake"
+  "C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/src/CMakeLists.txt"
+  "C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/tests/CMakeLists.txt"
   "C:/msys64/mingw64/share/cmake/Modules/CMakeCCompiler.cmake.in"
   "C:/msys64/mingw64/share/cmake/Modules/CMakeCCompilerABI.c"
   "C:/msys64/mingw64/share/cmake/Modules/CMakeCInformation.cmake"
@@ -142,10 +145,14 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/3.31.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.31.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "app/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "tests/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/main.dir/DependInfo.cmake"
-  "CMakeFiles/test.dir/DependInfo.cmake"
+  "src/CMakeFiles/funciones.dir/DependInfo.cmake"
+  "app/CMakeFiles/main.dir/DependInfo.cmake"
+  "tests/CMakeFiles/test_pruebas.dir/DependInfo.cmake"
   )

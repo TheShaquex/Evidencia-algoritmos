@@ -1,4 +1,11 @@
-C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/CMakeFiles/main.dir
-C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/CMakeFiles/test.dir
 C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/CMakeFiles/edit_cache.dir
 C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/CMakeFiles/rebuild_cache.dir
+C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/src/CMakeFiles/funciones.dir
+C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/src/CMakeFiles/edit_cache.dir
+C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/src/CMakeFiles/rebuild_cache.dir
+C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/app/CMakeFiles/main.dir
+C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/app/CMakeFiles/edit_cache.dir
+C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/app/CMakeFiles/rebuild_cache.dir
+C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/tests/CMakeFiles/test_pruebas.dir
+C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/tests/CMakeFiles/edit_cache.dir
+C:/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/tests/CMakeFiles/rebuild_cache.dir

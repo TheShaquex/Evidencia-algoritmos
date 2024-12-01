@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /C/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/CMakeFiles /C/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build//CMakeFiles/progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
+	cd /C/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build && $(CMAKE_COMMAND) -E cmake_progress_start /C/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/CMakeFiles /C/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/app//CMakeFiles/progress.marks
+	cd /C/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /C/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean
+	cd /C/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,57 +103,56 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd /C/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd /C/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /C/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named funciones
+# Convenience name for target.
+app/CMakeFiles/main.dir/rule:
+	cd /C/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/CMakeFiles/main.dir/rule
+.PHONY : app/CMakeFiles/main.dir/rule
 
-# Build rule for target.
-funciones: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 funciones
-.PHONY : funciones
-
-# fast build rule for target.
-funciones/fast:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/funciones.dir/build.make src/CMakeFiles/funciones.dir/build
-.PHONY : funciones/fast
-
-#=============================================================================
-# Target rules for targets named main
-
-# Build rule for target.
-main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
+# Convenience name for target.
+main: app/CMakeFiles/main.dir/rule
 .PHONY : main
 
 # fast build rule for target.
 main/fast:
-	$(MAKE) $(MAKESILENT) -f app/CMakeFiles/main.dir/build.make app/CMakeFiles/main.dir/build
+	cd /C/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/main.dir/build.make app/CMakeFiles/main.dir/build
 .PHONY : main/fast
 
-#=============================================================================
-# Target rules for targets named test_pruebas
+main.obj: main.cpp.obj
+.PHONY : main.obj
 
-# Build rule for target.
-test_pruebas: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_pruebas
-.PHONY : test_pruebas
+# target to build an object file
+main.cpp.obj:
+	cd /C/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/main.dir/build.make app/CMakeFiles/main.dir/main.cpp.obj
+.PHONY : main.cpp.obj
 
-# fast build rule for target.
-test_pruebas/fast:
-	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_pruebas.dir/build.make tests/CMakeFiles/test_pruebas.dir/build
-.PHONY : test_pruebas/fast
+main.i: main.cpp.i
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	cd /C/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/main.dir/build.make app/CMakeFiles/main.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	cd /C/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/main.dir/build.make app/CMakeFiles/main.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -163,9 +162,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... funciones"
 	@echo "... main"
-	@echo "... test_pruebas"
+	@echo "... main.obj"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 
@@ -177,6 +177,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /C/Users/Shaque/Documents/GitHub/Evidencia-algoritmos/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
